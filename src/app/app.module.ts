@@ -11,6 +11,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from "@angular/material/icon";
 import { SidebarComponent } from './pages/dashboard/components/sidebar/sidebar.component';
 import { DashboardHeaderComponent } from './pages/dashboard/components/dashboard-header/dashboard-header.component';
+import { MovieslistComponent } from './pages/dashboard/components/movieslist/movieslist.component';
+import {HttpClientModule} from "@angular/common/http";
+import {SwahiliPipe} from "./pipes/swahili.pipe";
 
 @NgModule({
   declarations: [
@@ -21,12 +24,15 @@ import { DashboardHeaderComponent } from './pages/dashboard/components/dashboard
     DashboardComponent,
     SidebarComponent,
     DashboardHeaderComponent,
+    MovieslistComponent,
+    SwahiliPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
