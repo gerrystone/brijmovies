@@ -9,6 +9,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from "@angular/material/icon";
+import { SidebarComponent } from './pages/dashboard/components/sidebar/sidebar.component';
+import { DashboardHeaderComponent } from './pages/dashboard/components/dashboard-header/dashboard-header.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import {MatIconModule} from "@angular/material/icon";
     LandingComponent,
     LoginComponent,
     DashboardComponent,
+    SidebarComponent,
+    DashboardHeaderComponent,
   ],
   imports: [
     BrowserModule,

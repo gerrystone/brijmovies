@@ -1,0 +1,43 @@
+@import "src/shared/variables"
+@import "src/shared/_breakpoints"
+
+#logo-sidebar
+  background-color: $primary-color
+  font-family: $font-secondary
+  top: 0
+  img
+    height: 80px
+.sidebar-open
+  width: 100%
+  animation: sidenav-animation 10s infinite
+  z-index: 1000
+.sidebar-close
+  @include xs
+    width: 0
+    animation: sidenav-animation 10s infinite
+  @include sm
+    width: 0
+  @include md
+    width: 20%
+    height: 100vh
+  @include lg
+    width: 20%
+    height: 100vh
+  @include xl
+    width: 20%
+    height: 100vh
+
+=keyframes($name)
+  @-webkit-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @-ms-keyframes #{$name}
+    @content
+  @keyframes #{$name}
+    @content
++keyframes (sidenav-animation)
+  0%
+    left: -300
+  100%
+    left: 0
