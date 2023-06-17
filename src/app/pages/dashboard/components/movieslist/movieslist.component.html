@@ -1,7 +1,7 @@
 <div class="container grid grid-cols-3 gap-12 px-10 mt-3 ">
     <div *ngFor="let movie of movieList.results; let i = index" class="movie-card" >
       <div class="card-wrapper" (mouseover)="hoverCard=i" (mouseleave)="hoverCard=null">
-        <img src="{{movie.primaryImage.url}}" >
+        <img *ngIf="movie.primaryImage" src="{{movie.primaryImage?.url || 'alfa-home-slider-img-1.jpg'}}" >
         <div class="overlay overlay_1">
           <h6>
             {{movie.titleText.text | swahili}}

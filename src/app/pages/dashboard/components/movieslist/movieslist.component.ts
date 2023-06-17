@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {data} from "autoprefixer";
+import {environment} from "../../../../../environments/environment";
 
 @Component({
   selector: 'app-movieslist',
@@ -9,6 +9,8 @@ import {data} from "autoprefixer";
 })
 export class MovieslistComponent implements OnInit {
   public movieList:any
+  private apiUrl = environment.apiUrl
+  private apiKey = environment.apiKey
   hoverCard: number | null = null;
   constructor(private http:HttpClient) { }
 
@@ -16,8 +18,8 @@ export class MovieslistComponent implements OnInit {
     this.getMethod()
   }
   public getMethod(){
-    this.http.get('https://moviesdatabase.p.rapidapi.com/titles/x/upcoming', {
-      headers: new HttpHeaders().set("X-RapidAPI-Key", "650dbe08b6msh67af47a89fe2d43p1cdbfdjsna6743fa4f9cd")
+    this.http.get(this.apiUrl, {
+      headers: new HttpHeaders().set("X-RapidAPI-Key", this.apiKey)
     }).subscribe(
       (data)=>{
         this.movieList=data
