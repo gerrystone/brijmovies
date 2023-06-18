@@ -1,0 +1,33 @@
+.card
+  margin: 10px
+  width: 300px
+  border-radius: 5px
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05)
+  animation: 1.5s shine linear infinite
+  background: silver
+  .content
+    padding: 20px 30px
+.is-loading
+  background: #e0e0e0
+  animation: 1.5s shine linear infinite
+  .image
+    height: 200px
+    background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%)
+    animation: 1.5s shine linear infinite
+    background-size: 200% 100%
+  h2
+    height: 30px
+    background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%)
+    animation: 1.5s shine linear infinite
+    background-size: 200% 100%
+  p
+    background: #eee
+    background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%)
+    border-radius: 5px
+    background-size: 200% 100%
+    animation: 1.5s shine linear infinite
+    height: 70px
+    margin-top: 1rem
+@keyframes shine
+  to
+    background-position-x: -200%

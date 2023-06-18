@@ -1,20 +1,20 @@
-<div class="container grid grid-cols-3 gap-12 px-10 mt-3 ">
-    <div *ngFor="let movie of movieList.results; let i = index" class="movie-card" >
-      <div class="card-wrapper" (mouseover)="hoverCard=i" (mouseleave)="hoverCard=null">
-        <img *ngIf="movie.primaryImage" src="{{movie.primaryImage?.url || 'alfa-home-slider-img-1.jpg'}}" >
-        <div class="overlay overlay_1">
-          <h6>
-            {{movie.titleText.text | swahili}}
-          </h6>
-          <p>
-            {{movie.titleType.text}}
-          </p>
-          <p class="year">
-            {{movie.releaseYear.year}}
-          </p>
-          <button class="get-ticket" *ngIf="hoverCard===i">Get Ticket</button>
-        </div>
+<div class="container px-10 mt-8 text-3xl font-bold ">
+  <h4 class="dashboard-header-text">Latest Movies </h4>
+</div>
+<div *ngIf="loading">
+  <!-- Skeleton loader here -->
+  <div class="md:grid grid-cols-3 mt-10 gap-12 px-10 mt-6 mb-2">
+    <app-skeleton></app-skeleton>
+    <app-skeleton></app-skeleton>
+    <app-skeleton></app-skeleton>
+  </div>
+</div>
+<div class="container md:grid grid-cols-3 gap-12 px-10 mt-6 mb-20 ">
 
-      </div>
+    <div *ngFor="let movie of movieList.results; let i = index" class="movie-card mt-10" >
+      <app-moviecard [title]="movie.titleText.text" [year]="movie.releaseYear.year" [type]="movie.titleType.text" [image]="movie.primaryImage?.url" [index]="i">
+
+      </app-moviecard>
+
     </div>
 </div>

@@ -8,6 +8,7 @@ import {Component, OnInit, Renderer2} from '@angular/core';
 export class DashboardHeaderComponent implements OnInit {
   menuOpen: boolean = false;
   menuBtnClick: boolean = false;
+  userEmail: string | null = ''
   constructor(private renderer:Renderer2) {
     this.renderer.listen('window', 'click', (e: Event) => {
       if (!this.menuBtnClick) {
@@ -18,7 +19,7 @@ export class DashboardHeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.userEmail = localStorage.getItem('email')
   }
   toggleMenu() {
     this.menuOpen = !this.menuOpen;

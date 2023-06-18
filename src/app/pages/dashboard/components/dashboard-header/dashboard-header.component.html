@@ -1,8 +1,8 @@
-<div class="container grid md:grid-cols-[80%_20%]  shadow pt-3 pb-3">
+<div class="container grid md:grid-cols-[70%_30%]  shadow pt-3 pb-3">
   <div></div>
   <div class=" px-10">
    <div class="relative">
-     <button  (click)="toggleMenu(); preventCloseOnClick()"  class="user-icon"><mat-icon>user</mat-icon> Username</button>
+     <button  (click)="toggleMenu(); preventCloseOnClick()"  class="user-icon"><span><mat-icon>person</mat-icon></span>{{userEmail}}</button>
      <!-- Dropdown menu -->
      <div id="dropdownNavbar" (click)="preventCloseOnClick()" *ngIf="menuOpen"  class="z-10 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 absolute">
        <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" >

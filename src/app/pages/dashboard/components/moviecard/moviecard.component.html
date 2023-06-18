@@ -1,0 +1,19 @@
+<div class="card-wrapper" (mouseover)="hoverCard=index" (mouseleave)="hoverCard=null">
+  <img *ngIf="image; else noImage" src="{{image}}" alt="{{title}}" >
+  <ng-template #noImage>
+    <img src="assets/alfa-home-slider-img-1.jpg" alt="Placeholder Image">
+  </ng-template>
+  <div class="overlay overlay_1">
+    <h6>
+      {{title | swahili}}
+    </h6>
+    <p>
+      {{type}}
+    </p>
+    <p class="year">
+      {{year}}
+    </p>
+    <button class="get-ticket" *ngIf="hoverCard===index">Get Ticket</button>
+  </div>
+
+</div>

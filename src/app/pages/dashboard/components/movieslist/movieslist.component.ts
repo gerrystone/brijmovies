@@ -11,6 +11,7 @@ export class MovieslistComponent implements OnInit {
   public movieList:any
   private apiUrl = environment.apiUrl
   private apiKey = environment.apiKey
+  loading:boolean = true
   hoverCard: number | null = null;
   constructor(private http:HttpClient) { }
 
@@ -23,6 +24,7 @@ export class MovieslistComponent implements OnInit {
     }).subscribe(
       (data)=>{
         this.movieList=data
+        this.loading = false
       }
     )
   }
