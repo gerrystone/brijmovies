@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component,OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {environment} from "../../../../../environments/environment";
 
@@ -7,6 +7,7 @@ import {environment} from "../../../../../environments/environment";
   templateUrl: './movieslist.component.html',
   styleUrls: ['./movieslist.component.sass']
 })
+
 export class MovieslistComponent implements OnInit {
   public movieList:any
   private apiUrl = environment.apiUrl
