@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +14,12 @@ import { DashboardHeaderComponent } from './pages/dashboard/components/dashboard
 import { MovieslistComponent } from './pages/dashboard/components/movieslist/movieslist.component';
 import {HttpClientModule} from "@angular/common/http";
 import {SwahiliPipe} from "./pipes/swahili.pipe";
+import {FormGroup, ReactiveFormsModule} from "@angular/forms";
+import {AngularToastifyModule} from "angular-toastify";
+import { SearchmoviesComponent } from './pages/dashboard/components/searchmovies/searchmovies.component';
+import { MoviecardComponent } from './pages/dashboard/components/moviecard/moviecard.component';
+import { SkeletonComponent } from './pages/dashboard/components/skeleton/skeleton.component';
+import { SuggestmoviesComponent } from './pages/dashboard/components/suggestmovies/suggestmovies.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +32,10 @@ import {SwahiliPipe} from "./pipes/swahili.pipe";
     DashboardHeaderComponent,
     MovieslistComponent,
     SwahiliPipe,
+    SearchmoviesComponent,
+    MoviecardComponent,
+    SkeletonComponent,
+    SuggestmoviesComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,8 +43,12 @@ import {SwahiliPipe} from "./pipes/swahili.pipe";
     BrowserAnimationsModule,
     MatIconModule,
     HttpClientModule,
+    AngularToastifyModule,
+    ReactiveFormsModule
   ],
+  exports: [SkeletonComponent],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas:[NO_ERRORS_SCHEMA]
 })
 export class AppModule { }
