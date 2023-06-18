@@ -6,11 +6,11 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./moviecard.component.sass']
 })
 export class MoviecardComponent implements OnInit {
-  @Input() title: any;
-  @Input() year: any;
-  @Input() type: any;
+  @Input() title: string ='';
+  @Input() year: string ='';
+  @Input() type: string ='';
   @Input() image: any;
-  @Input() index: any;
+  @Input() index: number =0;
   hoverCard: number | null = null;
   constructor() { }
 
