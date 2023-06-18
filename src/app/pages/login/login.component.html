@@ -1,5 +1,5 @@
-<div class="login-page grid grid-cols-[58%_42%] grid-rows-1 w-full">
-  <div class="left-side flex items-center justify-center">
+<div class="login-page md:grid grid-cols-[58%_42%] grid-rows-1 w-full">
+  <div class="left-side flex items-center justify-center sm:mx-10 sm:mt-10">
     <div class="">
       <div>
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="bg-white shadow-md rounded px-6 pt-6 pb-8 mb-4 w-full">
@@ -46,7 +46,7 @@
 
     </div>
   </div>
-  <div class="right-side flex items-center justify-center px-10 pt-20">
+  <div class="right-side flex items-center justify-center px-10 pt-20 hidden md:block">
    <div>
      <h3>
        Watch easily across Africa

@@ -1,3 +1,4 @@
+@import "src/shared/_breakpoints"
 .landing-page
   background: url("../../../assets/alfa-home-slider-img-1.jpg")
   background-size: cover
@@ -15,8 +16,26 @@
   h6
     color: white !important
     font-family: "Source Code Pro", sans-serif
+    margin: 2rem 0
   h1
     color: white !important
-    font-size: 75px
     span
       color: #f9ab10
+@include xs
+  h1
+    font-size: 45px !important
+    line-height: 55px
+@include sm
+  h1
+    font-size: 45px !important
+    line-height: 55px
+@include md
+  h1
+    font-size: 75px !important
+    line-height: 115%
+@include lg
+  h1
+    font-size: 85px
+@include xl
+  h1
+    font-size: 85px
