@@ -13,8 +13,6 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const user = localStorage.getItem('email')
     if (user && user!=='undefined'){
-      // if there's a user, the route can be activated
-      this.router.navigate(['/dashboard']) // Redirect user to dashboard if already logged in
       return true;
     } else {
       // if no user, redirect to the homepage
