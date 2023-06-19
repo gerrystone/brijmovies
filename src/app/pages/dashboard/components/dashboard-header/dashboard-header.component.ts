@@ -1,4 +1,5 @@
 import {Component, OnInit, Renderer2} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-dashboard-header',
@@ -9,7 +10,7 @@ export class DashboardHeaderComponent implements OnInit {
   menuOpen: boolean = false;
   menuBtnClick: boolean = false;
   userEmail: string | null = ''
-  constructor(private renderer:Renderer2) {
+  constructor(private renderer:Renderer2, private router:Router) {
     this.renderer.listen('window', 'click', (e: Event) => {
       if (!this.menuBtnClick) {
         this.menuOpen = false;
@@ -26,6 +27,10 @@ export class DashboardHeaderComponent implements OnInit {
   }
   preventCloseOnClick() {
     this.menuBtnClick = true;
+  }
+  signOut() {
+    localStorage.removeItem('email'); // assuming 'email' is what you're using to check logged in status
+    this.router.navigate(['/home']); // navigate to login route after sign out
   }
 
 }
