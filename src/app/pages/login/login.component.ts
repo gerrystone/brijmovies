@@ -15,6 +15,10 @@ export class LoginComponent implements OnInit {
   constructor(private http: HttpClient, private router:Router, private toastService:ToastService) { }
 
   ngOnInit(): void {
+    //check if user is logged in and redirect to dashboard
+    if(localStorage.getItem('email')) {
+      this.router.navigate(['/dashboard']);
+    }
     this.loginForm = new FormGroup<any>({
       email:new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, Validators.required)
