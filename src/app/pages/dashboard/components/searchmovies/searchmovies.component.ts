@@ -13,28 +13,18 @@ interface Movie {
   styleUrls: ['./searchmovies.component.sass']
 })
 export class SearchmoviesComponent implements OnInit {
-  searchControl:any = new FormControl
-  public movieList:any
-  loading:boolean = false
-  hasSearched = false;
   constructor(private movieService: MovieService) { }
-
+  hasSearched:boolean = false;
+  loading:boolean = true
+  public movieList:any
+  searchControl:any = new FormControl
   ngOnInit(): void {
-    this.searchControl.valueChanges.pipe(
-      debounceTime(1000), // Wait for the user to stop typing for 1 second
-      distinctUntilChanged(), //Only emit when the current value is different from the last one
-      filter((text:string )=> text.length >=3), // Only search when the text length is 3 or more
-      switchMap((searchString:string) => {
-        this.loading = true
-        this.hasSearched = true // To check the user has searched. This will be used to display the not found message if the response has no results
-        return this.movieService.searchMovies(searchString)
-      })
-    ).subscribe((movies:any) =>{
-      this.movieList =movies
-      this.loading = false
-    },
+    this.movieService.searchMovies().subscribe((movies:(string | number)[]) =>{
+        return movies
+      },
       (error:any)=>{
         this.loading = false
       })
+    this.hasSearched = true
   }
 }

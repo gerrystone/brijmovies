@@ -1,6 +1,7 @@
 import {Component,OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {environment} from "../../../../../environments/environment";
+import {MovieService} from "../../../../services/movie.service";
 
 @Component({
   selector: 'app-movieslist',
@@ -14,19 +15,12 @@ export class MovieslistComponent implements OnInit {
   private apiKey = environment.apiKey
   loading:boolean = true
   hoverCard: number | null = null;
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private movielist:MovieService) { }
 
   ngOnInit(): void {
     this.getMethod()
   }
   public getMethod(){
-    this.http.get(this.apiUrl, {
-      headers: new HttpHeaders().set("X-RapidAPI-Key", this.apiKey)
-    }).subscribe(
-      (data)=>{
-        this.movieList=data
-        this.loading = false
-      }
-    )
+    this.movieList = this.movielist.getMovieList()
   }
 }

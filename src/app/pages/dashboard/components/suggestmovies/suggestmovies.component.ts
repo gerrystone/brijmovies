@@ -14,7 +14,7 @@ export class SuggestmoviesComponent implements OnInit {
     reason: new FormControl(''),
     image:new FormControl('')
   })
-  suggestMovies:any
+  suggestMovies:any = []
   constructor(private toastService:ToastService) { }
 
   ngOnInit(): void {
@@ -31,13 +31,17 @@ export class SuggestmoviesComponent implements OnInit {
     this.toastService.success("Recommendation saved successfully")
     this.fetchMovies()
   }
-  handleFileInput(event:any):void{
-    const file = event.target.files[0];
-    const reader = new  FileReader()
-    reader.onload = ()=>{
-      this.suggestMovieForm.controls["image"].setValue(reader.result as string)
+  handleFileInput(event:Event):void{
+    const fileInput = event.target as HTMLInputElement
+    if (fileInput && fileInput.files && fileInput.files.length > 0){
+      const file = fileInput.files[0];
+      const reader = new  FileReader()
+      reader.onload = ()=>{
+        this.suggestMovieForm.controls["image"].setValue(reader.result as string)
+      }
+      reader.readAsDataURL(file)
     }
-    reader.readAsDataURL(file)
+
   }
   // Function that fetches movies from local storage
   fetchMovies() {

@@ -9,7 +9,7 @@ export class SwahiliPipe implements PipeTransform {
     // Copy the input string to a new variable
     let swahiliName = value
     // Define a dictionary for replacements: English words as keys and their Swahili translations as values
-    const replacements:any = {
+    const replacements:Record<string, string> = {
       'Fast': 'Haraka',
       'Family': 'Familia',
       'Rings': 'Pete'
